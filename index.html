@@ -1,14 +1,851 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Авто Электрика</title>
+
+    <link rel="stylesheet" href="./src/output.css">
+
+    <link rel="shortcut icon" href="./img/fav.png" type="image/x-icon">
 
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
+
 <body>
-    <!-- font-family: "Golos Text", sans-serif -->
+
+    <div
+        class="loader h-[100vh] w-full bg-white z-[999] fixed top-0 left-0 flex justify-center items-center opacity-100">
+        <img src="./img/loader.gif" alt="" class="h-[180px] max-[800px]:h-[130px]">
+        <img src="./img/fav.png" alt="" class="absolute h-[80px] w-[80px] max-[800px]:h-[60px] max-[800px]:w-[60px]">
+    </div>
+
+
+    <!-- header -->
+    <header class="text-2">
+        <div class="container2 flex flex-col">
+            <nav class="navbar-top flex justify-between items-center py-[10px]">
+
+                <label for="nav"
+                    class="text-1 text-[25px] justify-center items-center gap-[6px] max-[955px]: hidden max-[1155px]:block">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+
+                <a href="./index.html" class="flex justify-center items-center"><img src="./img/logo.png" alt=""
+                        class="w-[70%] max-[300px]:w-[50%]"></a>
+
+                <label for="nav" class="btn flex justify-center items-center gap-[6px] max-[1155px]:hidden"><i
+                        class="fa-solid fa-bars"></i>
+                    <span>Категории</span>
+                </label>
+
+                <form action="./index.html"
+                    class="w-[40%] flex justify-between items-center h-[40px] rounded-[12px] overflow-hidden border border-bc max-[955px]:hidden">
+                    <input type="search" placeholder="Я ищу" class="w-[80%] h-full border-none outline-none p-[0_10px]">
+                    <button type="submit" class="flex justify-center items-center h-full w-[20%] opacity50 "><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+
+                <div class="hidden max-[555px]:block">
+                    <i class="fa-solid fa-magnifying-glass text-1 text-[20px]"></i>
+                </div>
+
+                <nav
+                    class="grid grid-cols-3 gap-[20px] max-[555px]:fixed max-[555px]:bottom-0 max-[555px]:z-[444] max-[555px]:w-full max-[555px]:bg-white max-[555px]:left-0 max-[555px]:p-[10px] border-opacity-40 max-[555px]:border-t border-bc">
+                    <a href="#!" class="flex flex-col justify-between items-center hover:text-1">
+                        <img class="h-[25px]" src="./svg/cart.svg" alt="">
+                        <p class="text-[12px]">Корзина</p>
+                    </a>
+
+                    <a href="#!" class="flex flex-col justify-between items-center hover:text-1">
+                        <img class="h-[20px]" src="./svg/save.svg" alt="">
+                        <p class="text-[12px]">Избранное</p>
+                    </a>
+
+                    <label for="login" class="flex flex-col justify-between items-center hover:text-1">
+                        <img class="h-[22px]" src="./svg/profile.svg" alt="">
+                        <p class="text-[12px]">Профиль</p>
+                    </label>
+                </nav>
+            </nav>
+
+            <nav class="navbar-bottom flex justify-between items-center max-[670px]:hidden">
+                <span class="text-[9px] bg-bg p-[5px_10px] rounded-[12px] font-[600] max-[1210px]:hidden">
+                    Динамично.Надежно.Доступно.
+                </span>
+
+                <select class="text-[12px] font-[600] hover:text-1 cursor-pointer border-none outline-none">
+                    <option value="RU">RU</option>
+                    <option value="UZ">UZ</option>
+                </select>
+
+                <ul class="flex justify-center items-center gap-[15px] text-[14px] font-[500]">
+                    <li><a href="#!" class="hover:text-1">О компании</a></li>
+                    <li><a href="#!" class="hover:text-1">Клиентам</a></li>
+                    <li><a href="#!" class="hover:text-1">Сотрудничество</a></li>
+                    <li><a href="#!" class="hover:text-1">Контакты</a></li>
+                </ul>
+
+                <div class="social flex justify-center items-center gap-[20px]">
+                    <a href="#!"><img src="./svg/telegram.svg" alt=""></a>
+                    <a href="#!"><img src="./svg/wk.svg" alt=""></a>
+                </div>
+
+                <a href="tel:8 (800) 455-45-11" class="text-[17px] font-[600] text-1 max-[1055px]:hidden">8 (800)
+                    455-45-11</a>
+
+
+                <a href="#!" class="btn max-[1055px]:hidden"><i class="fa-solid fa-phone"></i> Заказть звонок</a>
+
+                <div class="hidden max-[1055px]:block">
+                    <i class="fa-solid fa-phone text-1 text-[20px]"></i>
+                </div>
+            </nav>
+
+            <input type="checkbox" name="" id="nav" class="hidden">
+            <nav
+                class="sidebar h-[100vh] w-[60%] bg-white z-[777] fixed left-[-100%] top-0 flex flex-col justify-center items-start gap-[10px] p-[20px] max-[550px]:w-[80%] max-[320px]:w-full">
+
+                <label for="nav" class="absolute right-[20px] top-[20px] text-1 text-[20px]">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </label>
+
+                <ul class="flex flex-col justify-start items-start gap-[40px] max-[670px]:gap-[10px]">
+                    <li><a href="#!" class="hover:text-1">Стеклоочистители</a></li>
+                    <li><a href="#!" class="hover:text-1">Карбюраторы</a></li>
+                    <li><a href="#!" class="hover:text-1">Термостаты</a></li>
+                    <li><a href="#!" class="hover:text-1">Датчики</a></li>
+                    <li><a href="#!" class="hover:text-1">Электро оборудование</a></li>
+                    <li><a href="#!" class="hover:text-1">Звуковые сигналы</a></li>
+                </ul>
+
+                <ul
+                    class="hidden justify-start items-start gap-[10px] border-t border-bg w-full pt-[10px] text-[14px] font-[500] max-[670px]:flex flex-col">
+                    <li><a href="#!" class="hover:text-1">О компании</a></li>
+                    <li><a href="#!" class="hover:text-1">Клиентам</a></li>
+                    <li><a href="#!" class="hover:text-1">Сотрудничество</a></li>
+                    <li><a href="#!" class="hover:text-1">Контакты</a></li>
+                </ul>
+
+                <a href="tel:8 (800) 455-45-11" class="text-[17px] font-[600] text-1 hidden max-[1055px]:block">8 (800)
+                    455-45-11</a>
+            </nav>
+
+            <input type="checkbox" name="" id="login" class="hidden">
+            <div
+                class="login h-[100vh] w-[40%] max-[965px]:w-[60%] max-[600px]:w-[70%] max-[430px]:w-full bg-white p-[40px_30px] max-[600px]:justify-center max-[600px]:p-[10px] z-[777] fixed right-[-100%] top-0 flex flex-col justify-start items-center gap-[20px]">
+                <label for="login"
+                    class="text-bc text-[20px] right-[15px] top-[15px] cursor-pointer absolute opacity-60">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </label>
+
+                <h1 class="text-2 text-[20px] font-[600]">Вход или регистрация</h1>
+
+                <form action="index.html" class="flex flex-col justify-center items-center gap-[20px] w-full">
+                    <input type="text" required placeholder="Адрес эл. почты"
+                        class="w-full h-[40px] rounded-[12px] border border-bc p-[5px_10px] outline-none focus:border-1">
+
+                    <input type="password" required placeholder="Пароль"
+                        class="w-full h-[40px] rounded-[12px] border border-bc p-[5px_10px] outline-none focus:border-1">
+                    <a href="#!" class="text-[14px] font-[500] hover:text-1 self-end">Забыли пароль</a>
+
+                    <button type="submit" href="#!"
+                        class="btn flex justify-center items-center gap-[14px] w-[50%] max-[600px]:w-full"><img
+                            src="./svg/w-cart.svg" alt=""> Войти</button>
+                </form>
+
+                <a href="#!" class="font-[500] hover:text-1">Зарегистрироваться</a>
+
+            </div>
+
+            <label for="login"
+                class=" hidden login_blur h-[100vh] w-full bg-[#0000000e] backdrop-blur-[1px] fixed top-0 left-0 z-[555]"></label>
+
+            <label for="nav"
+                class="blur h-[100vh] w-full bg-[#de570310] backdrop-blur-[2px] fixed top-0 left-0 z-[555] hidden"></label>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- showcase -->
+    <section class="py-[30px]" data-aos="fade-up">
+        <div class="container2">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/showcase.png" alt="" class="max-[660px]:h-[200px] object-cover rounded-xl">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/showcase.png" alt="" class="max-[660px]:h-[200px] object-cover rounded-xl">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/showcase.png" alt="" class="max-[660px]:h-[200px] object-cover rounded-xl">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- showcase end -->
+
+    <!-- popular category -->
+    <section class="py-[30px]">
+        <div class="container2">
+            <h1 class="section-title">Популярные категории</h1>
+
+            <div
+                class="grid grid-cols-6 gap-[20px] py-[30px] max-[1090px]:grid-cols-4 max-[730px]:grid-cols-3 max-[500px]:grid-cols-2 max-[400px]:gap-[10px]">
+                <!-- 1 -->
+                <div data-aos="fade-up"
+                    class="flex flex-col justify-between items-center p-[20px] h-[165px] max-[400px]:h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/card/1.png" alt="" class="max-[400px]:w-[50%] max-[300px]:w-[70%]">
+                    <p class="font-[500] text-2 group-hover:text-1">Стартеры</p>
+                </div>
+
+                <!-- 2 -->
+                <div data-aos="fade-up"
+                    class="flex flex-col justify-between items-center p-[20px] h-[165px] max-[400px]:h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/card/2.png" alt="" class="max-[400px]:w-[50%] max-[300px]:w-[70%]">
+                    <p class="font-[500] text-2 group-hover:text-1">Термостаты</p>
+                </div>
+
+                <!-- 3 -->
+                <div data-aos="fade-up"
+                    class="flex flex-col justify-between items-center p-[20px] h-[165px] max-[400px]:h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/card/3.png" alt="" class="max-[400px]:w-[50%] max-[300px]:w-[70%]">
+                    <p class="font-[500] text-2 group-hover:text-1">Датчики</p>
+                </div>
+
+                <!-- 4 -->
+                <div data-aos="fade-up"
+                    class="flex flex-col justify-between items-center p-[20px] h-[165px] max-[400px]:h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/card/4.png" alt="" class="max-[400px]:w-[50%] max-[300px]:w-[70%]">
+                    <p class="font-[500] text-2 group-hover:text-1">Генераторы</p>
+                </div>
+
+                <!-- 5 -->
+                <div data-aos="fade-up"
+                    class="flex flex-col justify-between items-center p-[20px] h-[165px] max-[400px]:h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/card/5.png" alt="" class="max-[400px]:w-[50%] max-[300px]:w-[70%]">
+                    <p class="font-[500] text-2 group-hover:text-1">Светотехника</p>
+                </div>
+
+                <!-- 6 -->
+                <div data-aos="fade-up"
+                    class="flex flex-col justify-between items-center p-[20px] h-[165px] max-[400px]:h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/card/6.png" alt="" class="max-[400px]:w-[50%] max-[300px]:w-[70%]">
+                    <p class="font-[500] text-2 group-hover:text-1">Электр</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- popular category end -->
+
+
+    <!-- news -->
+    <section class="py-[30px] text-2" data-aos="fade-up">
+        <div class="container2">
+            <h1 class="section-title mb-[20px]">Новости</h1>
+
+            <!-- Swiper -->
+            <div class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div
+                            class="flex flex-col justify-between items-start group cursor-pointer gap-[20px] overflow-hidden">
+                            <div class="w-full overflow-hidden rounded-[20px]">
+                                <img src="./img/news.png" alt=""
+                                    class="w-full h-full object-cover group-hover:scale-[1.1] transition duration-[.4s]">
+                            </div>
+
+                            <div class="flex flex-col justify-start items-start gap-[15px]">
+                                <h2
+                                    class="text-[20px] font-[700] group-hover:text-1 leading-[120%] max-[310px]:text-[17px]">
+                                    Заголовок в две строчки
+                                    или в три строчки
+                                </h2>
+
+                                <p class="text-[12px]"><i class="fa-regular fa-calendar-days"></i> 28.09.2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div
+                            class="flex flex-col justify-between items-start group cursor-pointer gap-[20px] overflow-hidden">
+                            <div class="w-full overflow-hidden rounded-[20px]">
+                                <img src="./img/news.png" alt=""
+                                    class="w-full h-full object-cover group-hover:scale-[1.1] transition duration-[.4s]">
+                            </div>
+
+                            <div class="flex flex-col justify-start items-start gap-[15px]">
+                                <h2
+                                    class="text-[20px] font-[700] group-hover:text-1 leading-[120%] max-[310px]:text-[17px]">
+                                    Заголовок в две строчки
+                                    или в три строчки
+                                </h2>
+
+                                <p class="text-[12px]"><i class="fa-regular fa-calendar-days"></i> 28.09.2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div
+                            class="flex flex-col justify-between items-start group cursor-pointer gap-[20px] overflow-hidden">
+                            <div class="w-full overflow-hidden rounded-[20px]">
+                                <img src="./img/news.png" alt=""
+                                    class="w-full h-full object-cover group-hover:scale-[1.1] transition duration-[.4s]">
+                            </div>
+
+                            <div class="flex flex-col justify-start items-start gap-[15px]">
+                                <h2
+                                    class="text-[20px] font-[700] group-hover:text-1 leading-[120%] max-[310px]:text-[17px]">
+                                    Заголовок в две строчки
+                                    или в три строчки
+                                </h2>
+
+                                <p class="text-[12px]"><i class="fa-regular fa-calendar-days"></i> 28.09.2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div
+                            class="flex flex-col justify-between items-start group cursor-pointer gap-[20px] overflow-hidden">
+                            <div class="w-full overflow-hidden rounded-[20px]">
+                                <img src="./img/news.png" alt=""
+                                    class="w-full h-full object-cover group-hover:scale-[1.1] transition duration-[.4s]">
+                            </div>
+
+                            <div class="flex flex-col justify-start items-start gap-[15px]">
+                                <h2
+                                    class="text-[20px] font-[700] group-hover:text-1 leading-[120%] max-[310px]:text-[17px]">
+                                    Заголовок в две строчки
+                                    или в три строчки
+                                </h2>
+
+                                <p class="text-[12px]"><i class="fa-regular fa-calendar-days"></i> 28.09.2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination max-[430px]:hidden"></div>
+            </div>
+
+
+
+        </div>
+    </section>
+    <!-- news wnd -->
+
+    <!-- banner -->
+    <section class="py-[30px]" >
+        <div class="container2">
+            <img src="./img/banner.png" alt="" class="max-[650px]:h-[120px] object-cover object-center rounded-2xl">
+        </div>
+    </section>
+    <!-- banner end -->
+
+    <!-- transport -->
+    <section class="py-[30px]">
+        <div class="container2">
+            <h1 class="section-title">Автозапчасти к технике</h1>
+
+            <div
+                class="grid grid-cols-7 gap-[20px] py-[30px] max-[1195px]:grid-cols-5 max-[840px]:grid-cols-4 max-[680px]:grid-cols-3 max-[475px]:grid-cols-2 max-[490px]:gap-[10px]">
+                <!-- 1 -->
+                <div data-aos="flip-left"
+                    class="flex flex-col justify-end items-center overflow-hidden p-[20px] relative h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/catalog/1.png" alt=""
+                        class="absolute top-0 right-0 z-10 w-[100px] max-[340px]:w-[80px]">
+                    <p class="font-[500] text-2 group-hover:text-1">Грузовые</p>
+                </div>
+
+                <!-- 2 -->
+                <div data-aos="flip-left"
+                    class="flex flex-col justify-end items-center overflow-hidden p-[20px] relative h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/catalog/2.png" alt=""
+                        class="absolute top-0 right-0 z-10 w-[100px] max-[340px]:w-[80px]">
+                    <p class="font-[500] text-2 group-hover:text-1">Трактора</p>
+                </div>
+
+                <!-- 3 -->
+                <div data-aos="flip-left"
+                    class="flex flex-col justify-end items-center overflow-hidden p-[20px] relative h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/catalog/3.png" alt=""
+                        class="absolute top-0 right-0 z-10 w-[100px] max-[340px]:w-[80px]">
+                    <p class="font-[500] text-2 group-hover:text-1">Легковые</p>
+                </div>
+
+                <!-- 4 -->
+                <div data-aos="flip-left"
+                    class="flex flex-col justify-end items-center overflow-hidden p-[20px] relative h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/catalog/4.png" alt=""
+                        class="absolute top-0 right-0 z-10 w-[100px] max-[340px]:w-[80px]">
+                    <p class="font-[500] text-2 group-hover:text-1">Сельхозтех</p>
+                </div>
+
+                <!-- 5 -->
+                <div data-aos="flip-left"
+                    class="flex flex-col justify-end items-center overflow-hidden p-[20px] relative h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/catalog/5.png" alt=""
+                        class="absolute top-0 right-0 z-10 w-[100px] max-[340px]:w-[80px]">
+                    <p class="font-[500] text-2 group-hover:text-1">Автобусы</p>
+                </div>
+
+                <!-- 6 -->
+                <div data-aos="flip-left"
+                    class="flex flex-col justify-end items-center overflow-hidden p-[20px] relative h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/catalog/6.png" alt=""
+                        class="absolute top-0 right-0 z-10 w-[100px] max-[340px]:w-[80px]">
+                    <p class="font-[500] text-2 group-hover:text-1">Спецтехника</p>
+                </div>
+
+                <!-- 7 -->
+                <div data-aos="flip-left"
+                    class="flex flex-col justify-end items-center overflow-hidden p-[20px] relative h-[150px] max-[340px]:h-[120px] rounded-[20px] border border-bg bg-bg hover:border-1 group cursor-pointer">
+                    <img src="./img/catalog/7.png" alt=""
+                        class="absolute top-0 right-0 z-10 w-[100px] max-[340px]:w-[80px]">
+                    <p class="font-[500] text-2 group-hover:text-1">Другое</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- transport end -->
+
+    <!-- product -->
+    <section class="py-[30px] text-2">
+        <div class="container2">
+            <h1 class="section-title mb-[20px]">Хиты продаж</h1>
+
+
+            <!-- Swiper -->
+            <div class="swiper mySwiper3">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <!-- 1 -->
+                        <div class="flex flex-col gap-[15px]">
+                            <div class="relative w-full">
+                                <img src="./img/./product.png" alt="" class="w-full h-full">
+                            </div>
+
+                            <div class="flex flex-col gap-[5px]">
+                                <div class="flex justify-between text-[20px] font-[600]">
+                                    <h1 class="text-black">899 ₽</h1>
+                                    <h1 class="line-through text-[17px]">899 ₽</h1>
+                                </div>
+
+                                <p class="text-[14px] leading-[120%]">
+                                    Фара светодиодная дополнительная 14 диодов, 42W, (115х42х142)
+                                </p>
+
+                                <div class="flex flex-col gap-0">
+                                    <small>Кат. номер:</small>
+                                    <p class="font-[600] text-[13px] text-[black] opacity-70">AE42R-14LED-42HC</p>
+                                </div>
+
+                                <a href="#!" class="btn flex justify-center items-center gap-[5px]"><img
+                                        src="./svg/w-cart.svg" alt=""> В
+                                    корзину</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="swiper-slide">
+                        <!-- 1 -->
+                        <div class="flex flex-col gap-[15px]">
+                            <div class="relative w-full">
+                                <img src="./img/./product.png" alt="" class="w-full h-full">
+                            </div>
+
+                            <div class="flex flex-col gap-[5px]">
+                                <div class="flex justify-between text-[20px] font-[600]">
+                                    <h1 class="text-black">899 ₽</h1>
+                                    <h1 class="line-through text-[17px]">899 ₽</h1>
+                                </div>
+
+                                <p class="text-[14px] leading-[120%]">
+                                    Фара светодиодная дополнительная 14 диодов, 42W, (115х42х142)
+                                </p>
+
+                                <div class="flex flex-col gap-0">
+                                    <small>Кат. номер:</small>
+                                    <p class="font-[600] text-[13px] text-[black] opacity-70">AE42R-14LED-42HC</p>
+                                </div>
+
+                                <a href="#!" class="btn flex justify-center items-center gap-[5px]"><img
+                                        src="./svg/w-cart.svg" alt=""> В
+                                    корзину</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="swiper-slide">
+                        <!-- 1 -->
+                        <div class="flex flex-col gap-[15px]">
+                            <div class="relative w-full">
+                                <img src="./img/./product.png" alt="" class="w-full h-full">
+                            </div>
+
+                            <div class="flex flex-col gap-[5px]">
+                                <div class="flex justify-between text-[20px] font-[600]">
+                                    <h1 class="text-black">899 ₽</h1>
+                                    <h1 class="line-through text-[17px]">899 ₽</h1>
+                                </div>
+
+                                <p class="text-[14px] leading-[120%]">
+                                    Фара светодиодная дополнительная 14 диодов, 42W, (115х42х142)
+                                </p>
+
+                                <div class="flex flex-col gap-0">
+                                    <small>Кат. номер:</small>
+                                    <p class="font-[600] text-[13px] text-[black] opacity-70">AE42R-14LED-42HC</p>
+                                </div>
+
+                                <a href="#!" class="btn flex justify-center items-center gap-[5px]"><img
+                                        src="./svg/w-cart.svg" alt=""> В
+                                    корзину</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="swiper-slide">
+                        <!-- 1 -->
+                        <div class="flex flex-col gap-[15px]">
+                            <div class="relative w-full">
+                                <img src="./img/./product.png" alt="" class="w-full h-full">
+                            </div>
+
+                            <div class="flex flex-col gap-[5px]">
+                                <div class="flex justify-between text-[20px] font-[600]">
+                                    <h1 class="text-black">899 ₽</h1>
+                                    <h1 class="line-through text-[17px]">899 ₽</h1>
+                                </div>
+
+                                <p class="text-[14px] leading-[120%]">
+                                    Фара светодиодная дополнительная 14 диодов, 42W, (115х42х142)
+                                </p>
+
+                                <div class="flex flex-col gap-0">
+                                    <small>Кат. номер:</small>
+                                    <p class="font-[600] text-[13px] text-[black] opacity-70">AE42R-14LED-42HC</p>
+                                </div>
+
+                                <a href="#!" class="btn flex justify-center items-center gap-[5px]"><img
+                                        src="./svg/w-cart.svg" alt=""> В
+                                    корзину</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <!-- 1 -->
+                        <div class="flex flex-col gap-[15px]">
+                            <div class="relative w-full">
+                                <img src="./img/./product.png" alt="" class="w-full h-full">
+                            </div>
+
+                            <div class="flex flex-col gap-[5px]">
+                                <div class="flex justify-between text-[20px] font-[600]">
+                                    <h1 class="text-black">899 ₽</h1>
+                                    <h1 class="line-through text-[17px]">899 ₽</h1>
+                                </div>
+
+                                <p class="text-[14px] leading-[120%]">
+                                    Фара светодиодная дополнительная 14 диодов, 42W, (115х42х142)
+                                </p>
+
+                                <div class="flex flex-col gap-0">
+                                    <small>Кат. номер:</small>
+                                    <p class="font-[600] text-[13px] text-[black] opacity-70">AE42R-14LED-42HC</p>
+                                </div>
+
+                                <a href="#!" class="btn flex justify-center items-center gap-[5px]"><img
+                                        src="./svg/w-cart.svg" alt=""> В
+                                    корзину</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <!-- 1 -->
+                        <div class="flex flex-col gap-[15px]">
+                            <div class="relative w-full">
+                                <img src="./img/./product.png" alt="" class="w-full h-full">
+                            </div>
+
+                            <div class="flex flex-col gap-[5px]">
+                                <div class="flex justify-between text-[20px] font-[600]">
+                                    <h1 class="text-black">899 ₽</h1>
+                                    <h1 class="line-through text-[17px]">899 ₽</h1>
+                                </div>
+
+                                <p class="text-[14px] leading-[120%]">
+                                    Фара светодиодная дополнительная 14 диодов, 42W, (115х42х142)
+                                </p>
+
+                                <div class="flex flex-col gap-0">
+                                    <small>Кат. номер:</small>
+                                    <p class="font-[600] text-[13px] text-[black] opacity-70">AE42R-14LED-42HC</p>
+                                </div>
+
+                                <a href="#!" class="btn flex justify-center items-center gap-[5px]"><img
+                                        src="./svg/w-cart.svg" alt=""> В
+                                    корзину</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="swiper-pagination max-[430px]:hidden"></div>
+            </div>
+
+        </div>
+    </section>
+    <!-- product end -->
+
+    <!-- banner -->
+    <section class="py-[30px]">
+        <div class="container2">
+            <img src="./img/banner.png" alt="" class="max-[650px]:h-[120px] object-cover object-center rounded-2xl">
+        </div>
+    </section>
+    <!-- banner end -->
+
+    <!-- services -->
+    <section class="py-[30px]">
+        <div class="container2">
+            <div class="grid grid-cols-3 gap-[20px] max-[1100px]:grid-cols-2 max-[800px]:grid-cols-1">
+                <div data-aos="flip-up"
+                    class="flex justify-between items-center gap-[15px] p-[15px] border border-bc rounded-xl max-[500px]:flex-col">
+                    <img src="./img/service/1.png" alt=""
+                        class="w-[80px] h-[80px] max-[500px]:h-[50px] max-[500px]:w-[50px]">
+
+                    <div
+                        class="flex flex-col max-[500px]:justify-center max-[500px]:items-center max-[500px]:text-center">
+                        <h3 class="font-[600] text-[19px] text-1">Динамично</h3>
+
+                        <p class="text-2 font-[400] text-[13px]">
+                            Мы предлагаем более 15000 наименований запчастей на все автотранспортных средств,
+                            тракторную и сельхозтехнику
+                        </p>
+                    </div>
+                </div>
+
+                <div data-aos="flip-up"
+                    class="flex justify-between items-center gap-[15px] p-[15px] border border-bc rounded-xl max-[500px]:flex-col">
+                    <img src="./img/service/2.png" alt=""
+                        class="w-[80px] h-[80px] max-[500px]:h-[50px] max-[500px]:w-[50px]">
+
+                    <div
+                        class="flex flex-col max-[500px]:justify-center max-[500px]:items-center max-[500px]:text-center">
+                        <h3 class="font-[600] text-[19px] text-1">Надежно</h3>
+
+                        <p class="text-2 font-[400] text-[13px]">
+                            Мы предлагаем более 15000 наименований запчастей на все автотранспортных средств,
+                            тракторную и сельхозтехнику
+                        </p>
+                    </div>
+                </div>
+
+                <div data-aos="flip-up"
+                    class="flex justify-between items-center gap-[15px] p-[15px] border border-bc rounded-xl max-[500px]:flex-col">
+                    <img src="./img/service/3.png" alt=""
+                        class="w-[80px] h-[80px] max-[500px]:h-[50px] max-[500px]:w-[50px]">
+
+                    <div
+                        class="flex flex-col max-[500px]:justify-center max-[500px]:items-center max-[500px]:text-center">
+                        <h3 class="font-[600] text-[19px] text-1">Доступно</h3>
+
+                        <p class="text-2 font-[400] text-[13px]">
+                            Мы предлагаем более 15000 наименований запчастей на все автотранспортных средств,
+                            тракторную и сельхозтехнику
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- services end -->
+
+
+    <!-- info -->
+    <section class="py-[30px]">
+        <div class="container2">
+            <h1 class="section-title mb-[20px]">
+                Оптовая продажа автотракторных запчастей
+            </h1>
+
+            <p class="text-[14px] text-2 font-[400]">
+                Гармоничное развитие всех подразделений компании в условиях современного рынка дает нам возможность
+                вместе с нашими
+                партнерами чувствовать уверенность в завтрашнем дне. <br><br>
+
+                Наша компания начала свой путь на рынке автозапчастей в 1993-м.
+                За 27 лет работы в условиях жесткой конкуренции мы приобрели колоссальный опыт, устойчивый, постоянно
+                расширяемый рынок
+                сбыта и огромное количество деловых партнеров, которые стали нашими друзьями. Всегда приятно работать с
+                теми, кто
+                никогда не подведет.
+            </p>
+        </div>
+    </section>
+    <!-- info end -->
+
+    <!-- check -->
+    <section class="py-[30px]">
+        <div class="container2">
+            <div class="flex flex-col gap-[20px] bg-[#FDE9DE] rounded-2xl p-[20px] max-[1190px]:text-center">
+                <h1 class="text-[18px] font-[600] text-2 max-[450px]:text-[16px]">Выберите категорию рассылки</h1>
+
+                <div class="flex justify-between items-center gap-[14px] max-[1190px]:flex-col">
+
+                    <div
+                        class="flex items-start justify-between w-full gap-[5px] max-[550px]:flex-col max-[550px]:gap-[10px]">
+                        <label for="check1"
+                            class="text-[14px] text-1 flex justify-center items-center gap-[5px] max-[550px]:justify-start max-[550px]:text-start">
+                            <input type="radio" name="" id="check1"
+                                class="accent-1 outline-none border-none h-[20px] w-[20px]" checked>
+                            Электронная версия каталога продукции
+                        </label>
+
+                        <label for="check2"
+                            class="text-[14px] text-2 flex justify-center items-center gap-[5px] max-[550px]:justify-start max-[550px]:text-start">
+                            <input type="radio" name="" id="check2"
+                                class="accent-1 outline-none border-none h-[20px] w-[20px]">
+                            Прайс-лист
+                            с актуальными ценами
+                        </label>
+
+                        <label for="check3"
+                            class="text-[14px] text-1 flex justify-center items-center gap-[5px] max-[550px]:justify-start max-[550px]:text-start ">
+                            <input type="radio" name="" id="check3"
+                                class="accent-1 outline-none border-none h-[20px] w-[20px]" checked>
+                            Информация
+                            о новинках и акциях
+                        </label>
+                    </div>
+
+                    <form action=""
+                        class="flex w-[60%] justify-between gap-[10px] max-[740px]:w-full max-[740px]:flex-col">
+                        <input type="email" placeholder="Введите Ваш e-mail" required
+                            class="w-[100%] rounded-xl outline-none p-[10px]">
+
+                        <button type="submit" class="btn outline-none">Подписаться</button>
+                    </form>
+                </div>
+
+                <p class="text-[13px] text-2">
+                    Нажимая «Подписаться», вы соглашаетесь с <a href="#!" class="underline text-1">политикой
+                        конфиденциальности</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- check end -->
+
+    <!-- footer -->
+    <footer class="py-[40px] bg-bg text-2">
+        <div class="container2 flex flex-col gap-[30px]">
+            <div class="grid grid-cols-4 gap-[50px] max-[870px]:grid-cols-2 max-[430px]:grid-cols-1">
+                <div class="flex flex-col justify-start items-start gap-[10px]">
+                    <a href="./index.html"><img src="./img/footer-logo.png" alt=""></a>
+
+                    <p class="text-[14px]">Оптовая продажа запчастей
+                        на все виды автотранспортных средств</p>
+
+                    <p class="text-[14px]">ИП Хомченко Максим Альбертович
+                        ОГРНИП 000000000</p>
+                </div>
+
+                <ul class="flex flex-col justify-start items-start gap-[10px]">
+                    <h3 class="text-[#000] opacity-70 font-[600]">О компании</h3>
+                    <li><a href="#!" class="hover:text-1">Документы и реквизиты</a></li>
+                    <li><a href="#!" class="hover:text-1">Бренды</a></li>
+                    <li><a href="#!" class="hover:text-1">Сотрудники</a></li>
+                    <li><a href="#!" class="hover:text-1"></a>Контакты</li>
+                    <li><a href="#!" class="hover:text-1"></a>Карьера</li>
+                </ul>
+
+                <ul class="flex flex-col justify-start items-start gap-[10px]">
+                    <h3 class="text-[#000] opacity-70 font-[600]">Клиентам</h3>
+                    <li><a href="#!" class="hover:text-1">Новости</a></li>
+                    <li><a href="#!" class="hover:text-1">Способы оплаты</a></li>
+                    <li><a href="#!" class="hover:text-1">Как сделать заказ</a></li>
+                    <li><a href="#!" class="hover:text-1">Гарантии возврата</a></li>
+                    <li><a href="#!" class="hover:text-1">Вопросы и ответы</a></li>
+                </ul>
+
+                <div class="flex flex-col justify-start items-start gap-[10px]">
+                    <div class="flex flex-col">
+                        <small>Время работы</small>
+                        <p class="font-[600] hover:text-1">пн.-пт. с 7:30 до 18:00</p>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <small>Телефоны:</small>
+                        <a href="tel:8(800)455-55-15" class="font-[600] hover:text-1">
+                            8 (800) 455-55-15
+                        </a>
+                        <a href="tel:+7(495)108-54-64" class="font-[600] hover:text-1">+7 (495) 108-54-64</a>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <small>Адрес эл. почты</small>
+                        <a href="mailto:info@auto-e.ru" class="font-[600] hover:text-1">
+                            info@auto-e.ru
+                        </a>
+                    </div>
+
+                    <div class="flex gap-[10px]">
+                        <a href="#!"><img src="./svg/telegram.svg" alt=""></a>
+                        <a href="#!"><img src="./svg/wk.svg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="flex justify-between items-center pt-[10px] max-[555px]:pb-[50px] border-t max-[500px]:flex-col">
+                <p class="text-[13px]">1993 - 2024 © АвтоЭлектрика</p>
+
+                <a href="#!" class="underline text-[13px] hover:text-1">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./app.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
 </body>
+
 </html>

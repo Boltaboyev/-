@@ -2,8 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-1;
+}
+
+* {
+    transition: .2s;
+}
+
 .container2 {
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto;
 }
 
@@ -11,4 +23,72 @@
     .container2 {
         max-width: 1250px;
     }
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #4e4b66;
+    text-align: start;
+    align-self: self-start;
+}
+
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 16px;
+    }
+}
+
+.btn {
+    padding: 9px 25px;
+    border-radius: 12px;
+    @apply bg-1;
+    color: #fff;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #de5703;
+}
+
+.btn:active {
+    transform: scale(.95);
+    transition: 0s;
+}
+
+#nav+nav {
+    transition: .4s;
+}
+
+#nav:checked+nav {
+    left: 0;
+}
+
+#nav:checked~.blur {
+    display: block;
+}
+
+
+#login+div {
+    transition: .4s;
+}
+
+#login:checked+div {
+    right: 0;
+}
+
+#login:checked~.login_blur {
+    display: block;
+}
+
+.swiper-pagination *{
+    background: #4e4b66 !important;
+}
+
+.loader {
+    transition: .6s;
+}
+
+.loader_active {
+    opacity: 0;
 }
